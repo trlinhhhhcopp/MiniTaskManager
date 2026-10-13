@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Mini Task Manager</h1>
+            <p>Ứng dụng thực hành HTML + CSS + JavaScript</p>
+        </header>
+
+        <!-- Khối Thêm Công Việc -->
+        <section class="card">
+            <h2 class="card-title">Thêm công việc</h2>
+            <form id="taskForm" class="row" novalidate>
+                <div class="form-group flex-2">
+                    <label for="taskName">Tên công việc <span class="required">*</span></label>
+                    <input type="text" id="taskName" placeholder="Nhập tên công việc...">
+                    <span id="errorMsg" class="error-msg" aria-live="polite">Vui lòng nhập tên công việc!</span>
+                </div>
+                <div class="form-group flex-1">
+                    <label for="taskDate">Hạn hoàn thành <span class="required">*</span></label>
+                    <input type="date" id="taskDate" lang="en-GB" required aria-describedby="dateErrorMsg">
+                    <span id="dateErrorMsg" class="error-msg" aria-live="polite">Hạn hoàn thành không được là ngày trước hôm nay.</span>
+                </div>
+                <div class="form-group flex-1">
+                    <label for="taskPriority">Ưu tiên</label>
+                    <select id="taskPriority">
+                        <option value="Cao">Cao</option>
+                        <option value="Trung bình" selected>Trung bình</option>
+                        <option value="Thấp">Thấp</option>
+                    </select>
+                </div>
+                <div class="form-group btn-group">
+                    <button type="submit" class="btn btn-primary" id="btnAdd">+ Thêm</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Khối Danh sách Công Việc -->
+        <section class="card">
+            <h2 class="card-title">Danh sách công việc</h2>
+            
+            <!-- Bộ lọc -->
+            <div class="row filter-row">
+                <div class="form-group flex-2">
+                    <label for="searchInput">Tìm kiếm</label>
+                    <input type="text" id="searchInput" placeholder="Tìm theo tên công việc">
+                </div>
+                <div class="form-group flex-1">
+                    <label for="filterStatus">Trạng thái</label>
+                    <select id="filterStatus">
+                        <option value="Tất cả">Tất cả</option>
+                        <option value="Đã hoàn thành">Đã hoàn thành</option>
+                        <option value="Chưa hoàn thành">Chưa hoàn thành</option>
+                    </select>
+                </div>
+                <div class="form-group flex-1">
+                    <label for="sortData">Sắp xếp (Phần D)</label>
+                    <select id="sortData">
+                        <option value="default">Thứ tự ban đầu</option>
+                        <option value="name">Theo tên (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Thống kê -->
+            <div class="stats-row">
+                <p id="taskStats">Tổng số: 0 | Đã hoàn thành: 0 | Chưa hoàn thành: 0</p>
+                <p id="taskCount">0 / 0 bản ghi</p>
+            </div>
+
+            <!-- Danh sách hiển thị -->
+            <ul id="taskList" class="task-list">
+                <!-- JavaScript sẽ render danh sách vào đây -->
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>Họ tên:</strong> Trần Thục Linh| <strong>MSV: </strong> 224001729 | <strong>Lớp:</strong> TUDD2024</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
